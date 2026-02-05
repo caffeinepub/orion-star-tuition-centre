@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Website project for Orion Star Tuition Centre (classes 1–12).",
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-multi-section-website-for-orion-star-tuition-centre-that-clearly-communicates-the-centre-name-and-that-it-teaches-students-from-class-1-to-class-12",
+      "title": "Create a responsive multi-section website for “Orion Star Tuition Centre” that clearly communicates the centre name and that it teaches students from Class 1 to Class 12.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-core-homepage-content-sections-with-clear-english-copy-hero-headline-short-description-about-why-choose-us-classes-subjects-grouped-for-class-1-5-6-8-9-10-11-12-teaching-approach-and-a-call-to-action-that-directs-users-to-contact-enquiry",
+      "title": "Implement core homepage content sections with clear English copy: Hero (headline + short description), About/Why Choose Us, Classes & Subjects (grouped for Class 1–5, 6–8, 9–10, 11–12), Teaching approach, and a Call-to-Action that directs users to contact/enquiry.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-contact-enquiry-section-containing-a-form-student-name-parent-guardian-name-class-grade-phone-email-message-with-client-side-validation-and-a-clear-success-failure-state-submit-the-form-to-the-backend-for-storage-so-enquiries-persist-across-reloads",
+      "title": "Add a Contact/Enquiry section containing a form (student name, parent/guardian name, class/grade, phone/email, message) with client-side validation and a clear success/failure state. Submit the form to the backend for storage so enquiries persist across reloads.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-simple-admin-view-not-publicly-advertised-in-navigation-that-lists-submitted-enquiries-most-recent-first-with-their-submitted-fields-and-timestamp-and-includes-a-basic-delete-action-per-enquiry",
+      "title": "Create a simple admin view (not publicly advertised in navigation) that lists submitted enquiries (most recent first) with their submitted fields and timestamp, and includes a basic delete action per enquiry.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-coherent-creative-visual-theme-appropriate-for-an-education-tuition-centre-colors-typography-spacing-component-styling-and-use-it-consistently-across-the-website-do-not-use-a-blue-purple-dominant-theme",
+      "title": "Apply a coherent, creative visual theme appropriate for an education/tuition centre (colors, typography, spacing, component styling) and use it consistently across the website (do not use a blue/purple-dominant theme).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-include-required-static-image-assets-in-the-frontend-and-render-them-in-the-ui-from-the-static-assets-directory-frontend-public-assets-generated-without-routing-images-through-the-backend",
+      "title": "Generate and include required static image assets in the frontend and render them in the UI from the static assets directory (frontend/public/assets/generated), without routing images through the backend.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a website for Orion Star Tuition Centre (serving students from class 1 to 12).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Tuition centre logo mark with a star/orion-inspired motif, clean and modern (orion-star-logo.dim_512x512.png)\n- Wide homepage hero banner illustration with students studying and subtle star/orion theme, warm academic feel (orion-star-hero.dim_1600x600.png)\n- Set of 3 simple outline icons in a consistent style: book, graduation cap, telescope/star (orion-star-icons-set.dim_512x512.png)",
+  "generatedImages": [
+    {
+      "filename": "orion-star-logo.dim_512x512.png",
+      "description": "Tuition centre logo mark with a star/orion-inspired motif, clean and modern",
+      "targetWidth": 512,
+      "targetHeight": 512
+    },
+    {
+      "filename": "orion-star-hero.dim_1600x600.png",
+      "description": "Wide homepage hero banner illustration with students studying and subtle star/orion theme, warm academic feel",
+      "targetWidth": 1600,
+      "targetHeight": 600
+    },
+    {
+      "filename": "orion-star-icons-set.dim_512x512.png",
+      "description": "Set of 3 simple outline icons in a consistent style: book, graduation cap, telescope/star",
+      "targetWidth": 512,
+      "targetHeight": 512
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Orion Star Tuition Centre",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

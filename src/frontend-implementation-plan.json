@@ -1,0 +1,170 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Orion Star Tuition Centre marketing website (frontend)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a responsive multi-section homepage that prominently communicates the tuition centre name and Class 1–12 coverage.",
+      "acceptanceCriteria": [
+        "Homepage displays the exact name “Orion Star Tuition Centre”.",
+        "Homepage explicitly states that the centre teaches Class 1 through Class 12.",
+        "Layout is usable on mobile and desktop (responsive)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the main app view as a responsive multi-section marketing page and ensure the exact text “Orion Star Tuition Centre” and explicit “Class 1 to Class 12” coverage appear prominently in the hero area."
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Ensure the app mounts the newly created App component and that global providers remain intact for data fetching and identity (no new auth requirements added for the public homepage)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add core homepage content sections with clear English copy and a prominent contact CTA that directs users to the enquiry area.",
+      "acceptanceCriteria": [
+        "Classes/Subjects section clearly covers Class 1–12 using grouped categories.",
+        "There is at least one prominent CTA button (e.g., “Enquire Now”) visible in the hero area.",
+        "All user-facing text is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Implement the required content sections (Hero, About/Why Choose Us, Classes & Subjects grouped for Class 1–5, 6–8, 9–10, 11–12, Teaching approach, and a CTA that scrolls/jumps to Contact/Enquiry). Use shadcn-ui components (e.g., Button/Card) for consistent section layout; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/Sections/ClassesSubjectsSection.tsx",
+          "operation": "create",
+          "description": "Create a dedicated section component that renders grouped Classes & Subjects for Class 1–5, 6–8, 9–10, and 11–12 in clear English, using shadcn-ui Card typography where appropriate; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/Sections/TeachingApproachSection.tsx",
+          "operation": "create",
+          "description": "Create a Teaching approach section component with clear English copy and consistent styling (composition-only; no edits to frontend/src/components/ui); verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add a Contact/Enquiry section with a validated form, clear success/failure UI, and submission to the backend so enquiries persist.",
+      "acceptanceCriteria": [
+        "Form validates required fields before submission and shows inline errors.",
+        "Successful submission shows a confirmation message and clears the form.",
+        "Submitted enquiries are stored in the canister and remain available after page reload."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Enquiry/EnquiryForm.tsx",
+          "operation": "create",
+          "description": "Create the enquiry form UI with fields: student name, parent/guardian name, class/grade, phone/email, and message; implement client-side validation with inline errors plus clear success/failure states. Compose shadcn-ui form primitives (Input/Textarea/Button/Alert) without modifying frontend/src/components/ui; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useSubmitEnquiry.ts",
+          "operation": "create",
+          "description": "Add a React Query mutation hook that calls the backend capability submitEnquiry(...) via useActor, handles errors gracefully, and returns status flags for success/failure rendering."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the Contact/Enquiry section into the homepage and connect the hero CTA (e.g., “Enquire Now”) to navigate/scroll to the enquiry section so users can reach the form quickly."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Create a simple admin view (not linked in public navigation) to list enquiries (most recent first) and delete an enquiry.",
+      "acceptanceCriteria": [
+        "Admin view displays a list of enquiries including class/grade and contact info fields provided.",
+        "Delete action removes an enquiry from storage and it no longer appears after refresh."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminEnquiriesPage.tsx",
+          "operation": "create",
+          "description": "Create an admin-only page that fetches and displays enquiries most-recent-first (including submitted fields and timestamp) and provides a per-item delete action. Use shadcn-ui components (Card/Button/Alert/Dialog) for consistent UI; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useEnquiriesAdmin.ts",
+          "operation": "create",
+          "description": "Add React Query hooks for admin actions: fetch enquiries (getAllEnquiries or paginated capabilities), fetch count if needed, and deleteEnquiry; invalidate/refetch queries after deletions."
+        },
+        {
+          "path": "frontend/src/components/auth/AdminGuard.tsx",
+          "operation": "create",
+          "description": "Add a small guard component that checks Internet Identity authentication state and calls backend capability isCallerAdmin() to protect the admin view; show an access denied state when unauthorized. Use the authorization component patterns for role-based access control; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/auth/LoginButton.tsx",
+          "operation": "create",
+          "description": "Add a login/logout button component using the existing Internet Identity hook so admins can authenticate when visiting the admin route. Implement cache-clearing on logout with React Query (per authorization component guidance); verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the admin view into the app routing (e.g., /admin) without adding any public navigation links to it; wrap the route in AdminGuard so only admins can access it."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Apply a coherent, creative, education-appropriate visual theme consistently across the site (avoid blue/purple-dominant styling).",
+      "acceptanceCriteria": [
+        "Theme is consistent across all sections (buttons, headings, cards, backgrounds).",
+        "The primary look is not blue/purple-dominant."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Define global theme tokens and base typography/spacing using a warm, academic palette (e.g., amber/emerald/neutral) that is not blue/purple-dominant, ensuring consistent section, card, and button styling across the site."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust Tailwind theme extensions (as needed) to support the chosen warm, education-appropriate palette and consistent typography scale, aligning with CSS variables used by the app."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply consistent layout primitives (container widths, section spacing, heading styles, button variants) across all homepage sections so the site reads as one cohesive theme."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Include required generated static images in frontend/public/assets/generated and render them in the UI without using the backend for images.",
+      "acceptanceCriteria": [
+        "All required generated images exist under frontend/public/assets/generated.",
+        "Homepage visibly uses the generated logo and hero image."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/orion-star-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated logo asset file at the exact path frontend/public/assets/generated/orion-star-logo.dim_512x512.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/orion-star-hero.dim_1600x600.png",
+          "operation": "create",
+          "description": "Add the generated hero banner asset file at the exact path frontend/public/assets/generated/orion-star-hero.dim_1600x600.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/orion-star-icons-set.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated icons set asset file at the exact path frontend/public/assets/generated/orion-star-icons-set.dim_512x512.png."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Render the generated images in the UI: use frontend/public/assets/generated/orion-star-logo.dim_512x512.png in the header/hero branding, frontend/public/assets/generated/orion-star-hero.dim_1600x600.png in the hero section, and incorporate frontend/public/assets/generated/orion-star-icons-set.dim_512x512.png within feature/benefit highlights."
+        }
+      ]
+    }
+  ]
+}

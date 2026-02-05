@@ -1,0 +1,93 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-05T07:52:17.390Z",
+  "summary": "Most frontend homepage sections, enquiry form (with client-side validation and success/error UI), and an admin enquiries page with delete appear implemented. However, backend persistence across reloads is not clearly implemented (enquiries stored in non-stable in-memory structures in the shown snippet), and the required generated image assets’ existence under `frontend/public/assets/generated` cannot be confirmed from the diff summary. Several unrequested features were added (user profiles, access control/secret-token initialization, pagination/count APIs).",
+  "missing_requirements": [
+    {
+      "id": "REQ-3",
+      "requirement": "Submitted enquiries are stored in the canister and remain available after page reload.",
+      "reason": "In the visible backend code, enquiries are stored in `let enquiries = Map.empty<Nat, Enquiry>()` with `var nextId = 0`, which are not shown as `stable` variables; this suggests enquiries may not persist across upgrades/reloads. The file is truncated, so persistence might exist later, but it is not evidenced in the provided snippet.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "All required generated images exist under `frontend/public/assets/generated` and are rendered from static assets (not via backend).",
+      "reason": "UI components reference the expected asset paths, but the diff summary does not show the actual image files added under `frontend/public/assets/generated` (some added files are omitted due to limits). Therefore, existence of the required static images cannot be verified from the provided evidence.",
+      "evidence": [
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/components/layout/Footer.tsx",
+        "frontend/src/components/sections/HeroSection.tsx",
+        "frontend/src/components/sections/TeachingApproachSection.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "User profile management API (get/save user profiles) with authorization checks.",
+      "reason": "BuildRequest does not mention user profiles or profile endpoints; only enquiry submission and admin enquiry management were requested.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Access-control/authorization mixin system and secret-token initialization via URL parameter `caffeineAdminToken`.",
+      "reason": "BuildRequest did not request custom access-control bootstrapping or secret-token based initialization; it only required an admin view not publicly advertised.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Additional admin APIs: enquiry count and paginated enquiries.",
+      "reason": "BuildRequest only required listing all enquiries (most recent first) and delete; count/pagination were not requested.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useEnquiriesAdmin.ts"
+      ]
+    },
+    {
+      "description": "Internet Identity login/logout UX and AdminGuard gating for the admin route.",
+      "reason": "Internet Identity was allowed but explicitly noted as not required; the request did not ask to add authentication flows.",
+      "evidence": [
+        "frontend/src/components/auth/AdminGuard.tsx",
+        "frontend/src/components/auth/LoginButton.tsx",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/main.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.66,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/admin/EnquiriesList.tsx",
+    "frontend/src/components/auth/AdminGuard.tsx",
+    "frontend/src/components/auth/LoginButton.tsx",
+    "frontend/src/components/enquiry/EnquiryForm.tsx",
+    "frontend/src/components/layout/Footer.tsx",
+    "frontend/src/components/layout/Header.tsx",
+    "frontend/src/components/sections/AboutSection.tsx",
+    "frontend/src/components/sections/ClassesSubjectsSection.tsx",
+    "frontend/src/components/sections/EnquirySection.tsx",
+    "frontend/src/components/sections/HeroSection.tsx",
+    "frontend/src/components/sections/TeachingApproachSection.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useEnquiriesAdmin.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useSubmitEnquiry.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AdminEnquiriesPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

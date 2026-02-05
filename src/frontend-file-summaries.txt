@@ -1,0 +1,20 @@
+{
+  "frontend/src/index.css": "Global styles with warm amber/emerald OKLCH color system for education theme, custom fonts (Poppins for headings, Inter for body), and design tokens for light/dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom color tokens, typography (Poppins/Inter fonts), enhanced shadows, border radius, and fade-in animation.",
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, ThemeProvider wrapper, and routes for homepage and admin panel with shared layout.",
+  "frontend/src/pages/HomePage.tsx": "Homepage component that composes all marketing sections (Hero, About, Classes, Teaching, Enquiry) in a single-page layout.",
+  "frontend/src/pages/AdminEnquiriesPage.tsx": "Admin dashboard page with authentication guard, header with navigation and login button, and enquiries list management.",
+  "frontend/src/components/layout/Header.tsx": "Sticky header with logo, responsive navigation menu, smooth scroll to sections, and mobile hamburger menu.",
+  "frontend/src/components/layout/Footer.tsx": "Footer with branding, quick links, social media icons, and caffeine.ai attribution with heart icon.",
+  "frontend/src/components/sections/HeroSection.tsx": "Hero section with Orion Star branding, headline stating Class 1-12 coverage, hero image, and prominent CTA buttons.",
+  "frontend/src/components/sections/AboutSection.tsx": "About section showcasing four key features (experienced teachers, small classes, focused curriculum, proven results) in card grid layout.",
+  "frontend/src/components/sections/ClassesSubjectsSection.tsx": "Classes section displaying four grouped categories (Class 1-5, 6-8, 9-10, 11-12) with subjects, descriptions, and color-coded icons.",
+  "frontend/src/components/sections/TeachingApproachSection.tsx": "Teaching approach section with checklist of methodologies, inspirational quote, and decorative icon set image.",
+  "frontend/src/components/sections/EnquirySection.tsx": "Contact section wrapper that displays heading and contains the enquiry form component.",
+  "frontend/src/components/enquiry/EnquiryForm.tsx": "Validated enquiry form with fields for student/parent names, class, contact, and message; shows success/error states and clears on submission.",
+  "frontend/src/components/admin/EnquiriesList.tsx": "Admin component displaying all enquiries in cards with formatted timestamps, contact details, and delete functionality with confirmation dialog.",
+  "frontend/src/components/auth/AdminGuard.tsx": "Authentication guard component that checks Internet Identity login and admin status, showing appropriate loading, login prompt, or access denied states.",
+  "frontend/src/components/auth/LoginButton.tsx": "Reusable login/logout button with Internet Identity integration, loading states, and query cache clearing on logout.",
+  "frontend/src/hooks/useSubmitEnquiry.ts": "React Query mutation hook for submitting enquiries to backend, with automatic cache invalidation.",
+  "frontend/src/hooks/useEnquiriesAdmin.ts": "React Query hooks for admin operations (fetch all enquiries, check admin status, delete enquiry, get count) with proper actor dependency handling."
+}

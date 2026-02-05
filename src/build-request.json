@@ -1,0 +1,118 @@
+{
+  "kind": "build_request",
+  "title": "Create marketing website for Orion Star Tuition Centre (Classes 1–12)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a responsive multi-section website for “Orion Star Tuition Centre” that clearly communicates the centre name and that it teaches students from Class 1 to Class 12.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create an website for my tuition centre. The name is Orion star tuition centre. we teach students from class 1 till 12."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Homepage displays the exact name “Orion Star Tuition Centre”.",
+        "Homepage explicitly states that the centre teaches Class 1 through Class 12.",
+        "Layout is usable on mobile and desktop (responsive)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement core homepage content sections with clear English copy: Hero (headline + short description), About/Why Choose Us, Classes & Subjects (grouped for Class 1–5, 6–8, 9–10, 11–12), Teaching approach, and a Call-to-Action that directs users to contact/enquiry.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "we teach students from class 1 till 12."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Classes/Subjects section clearly covers Class 1–12 using grouped categories.",
+        "There is at least one prominent CTA button (e.g., “Enquire Now”) visible in the hero area.",
+        "All user-facing text is in English."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a Contact/Enquiry section containing a form (student name, parent/guardian name, class/grade, phone/email, message) with client-side validation and a clear success/failure state. Submit the form to the backend for storage so enquiries persist across reloads.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Form validates required fields before submission and shows inline errors.",
+        "Successful submission shows a confirmation message and clears the form.",
+        "Submitted enquiries are stored in the canister and remain available after page reload."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create a simple admin view (not publicly advertised in navigation) that lists submitted enquiries (most recent first) with their submitted fields and timestamp, and includes a basic delete action per enquiry.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin view displays a list of enquiries including class/grade and contact info fields provided.",
+        "Delete action removes an enquiry from storage and it no longer appears after refresh."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Apply a coherent, creative visual theme appropriate for an education/tuition centre (colors, typography, spacing, component styling) and use it consistently across the website (do not use a blue/purple-dominant theme).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Theme is consistent across all sections (buttons, headings, cards, backgrounds).",
+        "The primary look is not blue/purple-dominant."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Generate and include required static image assets in the frontend and render them in the UI from the static assets directory (frontend/public/assets/generated), without routing images through the backend.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All required generated images exist under frontend/public/assets/generated.",
+        "Homepage visibly uses the generated logo and hero image."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor in backend/main.mo (no additional backend services).",
+    "Do not edit files under frontend/src/components/ui or any frontend immutable paths; compose them instead."
+  ],
+  "nonGoals": [
+    "Online payments or subscription billing",
+    "Real-time chat or messaging",
+    "Third-party authentication providers (only Internet Identity would be allowed, but it is not required for this request)",
+    "Integration with external databases or external CRMs"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Tuition centre logo mark with a star/orion-inspired motif, clean and modern (orion-star-logo.dim_512x512.png)",
+      "Wide homepage hero banner illustration with students studying and subtle star/orion theme, warm academic feel (orion-star-hero.dim_1600x600.png)",
+      "Set of 3 simple outline icons in a consistent style: book, graduation cap, telescope/star (orion-star-icons-set.dim_512x512.png)"
+    ],
+    "edits": []
+  }
+}

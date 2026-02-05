@@ -1,2 +1,3 @@
-# orion-star-tuition-centre
-Exported from Caffeine project: Orion Star Tuition Centre
+## Orion Star Tuition Centre
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`
