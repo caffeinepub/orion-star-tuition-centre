@@ -64,12 +64,16 @@ export default {
             },
             boxShadow: {
                 xs: '0 1px 2px 0 rgba(0,0,0,0.05)',
-                soft: '0 2px 8px -2px rgba(0,0,0,0.08)',
-                medium: '0 4px 16px -4px rgba(0,0,0,0.12)'
+                soft: '0 2px 8px -2px rgba(0,0,0,0.08), 0 4px 12px -4px rgba(0,0,0,0.06)',
+                medium: '0 4px 16px -4px rgba(0,0,0,0.12), 0 8px 24px -8px rgba(0,0,0,0.08)'
             },
             fontFamily: {
                 sans: ['Inter', 'system-ui', 'sans-serif'],
                 heading: ['Poppins', 'Inter', 'sans-serif']
+            },
+            spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem'
             },
             keyframes: {
                 'accordion-down': {

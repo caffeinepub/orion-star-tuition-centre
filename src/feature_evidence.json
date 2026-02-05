@@ -2,11 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-a-responsive-multi-section-website-for-orion-star-tuition-centre-that-clearly-communicates-the-centre-name-and-that-it-teaches-students-from-class-1-to-class-12",
-      "featureTitle": "Create a responsive multi-section website for “Orion Star Tuition Centre” that clearly communicates the centre name and that it teaches students from Class 1 to Class 12.",
+      "featureId": "feature-create-a-new-public-contact-page-route-at-contact-and-render-the-tuition-centre-contact-numbers-8754585354-and-9677219328-clearly-on-the-page-including-click-to-call-tel-links",
+      "featureTitle": "Create a new public Contact page route at \"/contact\" and render the tuition centre contact numbers \"8754585354\" and \"9677219328\" clearly on the page (including click-to-call \"tel:\" links).",
       "files": [
         "frontend/src/App.tsx",
-        "frontend/src/main.tsx"
+        "frontend/src/pages/ContactPage.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -22,10 +22,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-implement-core-homepage-content-sections-with-clear-english-copy-hero-headline-short-description-about-why-choose-us-classes-subjects-grouped-for-class-1-5-6-8-9-10-11-12-teaching-approach-and-a-call-to-action-that-directs-users-to-contact-enquiry",
-      "featureTitle": "Implement core homepage content sections with clear English copy: Hero (headline + short description), About/Why Choose Us, Classes & Subjects (grouped for Class 1–5, 6–8, 9–10, 11–12), Teaching approach, and a Call-to-Action that directs users to contact/enquiry.",
+      "featureId": "feature-update-the-site-navigation-so-users-can-reach-the-new-contact-page-from-the-header-navigation-currently-includes-a-contact-item-that-scrolls-to-the-enquiry-section",
+      "featureTitle": "Update the site navigation so users can reach the new Contact page from the header navigation (currently includes a \"Contact\" item that scrolls to the \"enquiry\" section).",
       "files": [
-        "frontend/src/App.tsx"
+        "frontend/src/components/layout/Header.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -41,11 +41,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-a-contact-enquiry-section-containing-a-form-student-name-parent-guardian-name-class-grade-phone-email-message-with-client-side-validation-and-a-clear-success-failure-state-submit-the-form-to-the-backend-for-storage-so-enquiries-persist-across-reloads",
-      "featureTitle": "Add a Contact/Enquiry section containing a form (student name, parent/guardian name, class/grade, phone/email, message) with client-side validation and a clear success/failure state. Submit the form to the backend for storage so enquiries persist across reloads.",
+      "featureId": "feature-add-the-contact-numbers-8754585354-and-9677219328-to-the-footer-connect-with-us-area-so-they-are-visible-site-wide",
+      "featureTitle": "Add the contact numbers \"8754585354\" and \"9677219328\" to the footer \"Connect With Us\" area so they are visible site-wide.",
       "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/hooks/useSubmitEnquiry.ts"
+        "frontend/src/components/layout/Footer.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -57,69 +56,6 @@
       ],
       "testIds": [
         "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-a-simple-admin-view-not-publicly-advertised-in-navigation-that-lists-submitted-enquiries-most-recent-first-with-their-submitted-fields-and-timestamp-and-includes-a-basic-delete-action-per-enquiry",
-      "featureTitle": "Create a simple admin view (not publicly advertised in navigation) that lists submitted enquiries (most recent first) with their submitted fields and timestamp, and includes a basic delete action per enquiry.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/auth/AdminGuard.tsx",
-        "frontend/src/components/auth/LoginButton.tsx",
-        "frontend/src/hooks/useEnquiriesAdmin.ts",
-        "frontend/src/pages/AdminEnquiriesPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-apply-a-coherent-creative-visual-theme-appropriate-for-an-education-tuition-centre-colors-typography-spacing-component-styling-and-use-it-consistently-across-the-website-do-not-use-a-blue-purple-dominant-theme",
-      "featureTitle": "Apply a coherent, creative visual theme appropriate for an education/tuition centre (colors, typography, spacing, component styling) and use it consistently across the website (do not use a blue/purple-dominant theme).",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-generate-and-include-required-static-image-assets-in-the-frontend-and-render-them-in-the-ui-from-the-static-assets-directory-frontend-public-assets-generated-without-routing-images-through-the-backend",
-      "featureTitle": "Generate and include required static image assets in the frontend and render them in the UI from the static assets directory (frontend/public/assets/generated), without routing images through the backend.",
-      "files": [
-        "frontend/src/App.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-6"
       ],
       "confidence": "high"
     }

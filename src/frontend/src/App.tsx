@@ -2,6 +2,7 @@ import { createRouter, createRoute, createRootRoute, RouterProvider, Outlet, use
 import { ThemeProvider } from 'next-themes';
 import HomePage from './pages/HomePage';
 import AdminEnquiriesPage from './pages/AdminEnquiriesPage';
+import ContactPage from './pages/ContactPage';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 
@@ -33,7 +34,13 @@ const adminRoute = createRoute({
   component: AdminEnquiriesPage,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, adminRoute]);
+const contactRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/contact',
+  component: ContactPage,
+});
+
+const routeTree = rootRoute.addChildren([indexRoute, adminRoute, contactRoute]);
 
 const router = createRouter({ routeTree });
 

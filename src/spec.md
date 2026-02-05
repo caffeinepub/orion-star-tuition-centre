@@ -1,14 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Build a responsive marketing website for “Orion Star Tuition Centre” (Classes 1–12) with an enquiry form that stores submissions and a simple admin view to review/delete enquiries.
+**Goal:** Add a dedicated Contact page and make the tuition centre phone numbers easily accessible site-wide.
 
 **Planned changes:**
-- Create a responsive multi-section homepage that prominently shows “Orion Star Tuition Centre” and clearly states it teaches Class 1 through Class 12.
-- Add homepage sections with English copy: Hero (headline + short description + prominent CTA), About/Why Choose Us, Classes & Subjects (grouped 1–5, 6–8, 9–10, 11–12), Teaching approach, and a Contact/Enquiry section.
-- Implement a Contact/Enquiry form (student name, parent/guardian name, class/grade, phone/email, message) with client-side validation, and success/failure states; submit to backend for persistent storage.
-- Add an admin view (not linked in public navigation) to list enquiries (most recent first) with timestamps and allow deleting individual enquiries.
-- Apply a consistent education-appropriate visual theme (not blue/purple-dominant) across all sections and components.
-- Generate and include required static image assets in `frontend/public/assets/generated` and display the logo and hero image on the homepage.
+- Create a new public route at `/contact` that displays the phone numbers `8754585354` and `9677219328` in English with click-to-call `tel:` links.
+- Update the header navigation so the "Contact" item routes to `/contact` (instead of scrolling to the enquiry section), on both desktop and mobile menus.
+- Add the same phone numbers to the footer "Connect With Us" area as clickable `tel:` links while keeping the existing footer styling consistent.
 
-**User-visible outcome:** Visitors can browse a themed, mobile-friendly site describing classes (1–12) and submit enquiries via a validated form; an admin-only page can review and delete stored enquiries that persist after reload.
+**User-visible outcome:** Users can navigate to `/contact` from the header and can click either `8754585354` or `9677219328` to call; the same numbers are also visible and clickable in the footer across the site.

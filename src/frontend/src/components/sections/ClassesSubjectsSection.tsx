@@ -42,46 +42,50 @@ export default function ClassesSubjectsSection() {
   ];
 
   return (
-    <section id="classes" className="w-full py-16 md:py-24">
+    <section id="classes" className="w-full py-20 md:py-28">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-5 leading-tight">
             Classes & Subjects
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
             Comprehensive curriculum coverage from Class 1 to Class 12, tailored to each student's learning needs.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Class Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-16">
           {classGroups.map((group, index) => (
-            <Card key={index} className="border-border/50 hover:border-primary/30 transition-all hover:shadow-soft">
-              <CardHeader>
+            <Card 
+              key={index} 
+              className="border-2 border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-soft"
+            >
+              <CardHeader className="pb-4">
                 <div className="flex items-start gap-4">
-                  <div className={`p-3 ${group.bgColor} rounded-xl`}>
+                  <div className={`p-3.5 ${group.bgColor} rounded-2xl`}>
                     <group.icon className={`h-7 w-7 ${group.color}`} />
                   </div>
                   <div className="flex-1">
-                    <CardTitle className="text-xl font-heading mb-1">
+                    <CardTitle className="text-xl font-heading mb-1.5 leading-tight">
                       {group.title}
                     </CardTitle>
-                    <p className="text-sm font-medium text-primary">
+                    <p className="text-sm font-semibold text-primary">
                       {group.subtitle}
                     </p>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-sm text-muted-foreground">
+              <CardContent className="space-y-5">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {group.description}
                 </p>
                 <div>
-                  <h4 className="text-sm font-semibold text-foreground mb-2">Subjects Offered:</h4>
+                  <h4 className="text-sm font-semibold text-foreground mb-3">Subjects Offered:</h4>
                   <div className="flex flex-wrap gap-2">
                     {group.subjects.map((subject, idx) => (
                       <span
                         key={idx}
-                        className="inline-block px-3 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full"
+                        className="inline-block px-3 py-1.5 text-xs font-medium bg-secondary/80 text-secondary-foreground rounded-full border border-border/30"
                       >
                         {subject}
                       </span>
@@ -91,6 +95,19 @@ export default function ClassesSubjectsSection() {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Classes Collage Image */}
+        <div className="max-w-4xl mx-auto mt-12">
+          <div className="relative rounded-2xl overflow-hidden shadow-medium">
+            <img
+              src="/assets/generated/orion-star-classes-collage.dim_1200x800.png"
+              alt="Diverse subjects and learning activities at Orion Star Tuition Centre"
+              width={1200}
+              height={800}
+              className="w-full h-auto aspect-[3/2]"
+            />
+          </div>
         </div>
       </div>
     </section>

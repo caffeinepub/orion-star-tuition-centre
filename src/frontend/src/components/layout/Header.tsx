@@ -1,25 +1,43 @@
-import { useNavigate } from '@tanstack/react-router';
+import { useNavigate, useLocation } from '@tanstack/react-router';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Header() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     setMobileMenuOpen(false);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    // If not on homepage, navigate to homepage first
+    if (location.pathname !== '/') {
+      navigate({ to: '/' });
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
+  const handleContactClick = () => {
+    setMobileMenuOpen(false);
+    navigate({ to: '/contact' });
+  };
+
   const navItems = [
-    { label: 'Home', id: 'hero' },
-    { label: 'About', id: 'about' },
-    { label: 'Classes', id: 'classes' },
-    { label: 'Teaching', id: 'teaching' },
-    { label: 'Contact', id: 'enquiry' },
+    { label: 'Home', id: 'hero', action: () => scrollToSection('hero') },
+    { label: 'About', id: 'about', action: () => scrollToSection('about') },
+    { label: 'Classes', id: 'classes', action: () => scrollToSection('classes') },
+    { label: 'Teaching', id: 'teaching', action: () => scrollToSection('teaching') },
+    { label: 'Contact', id: 'contact', action: handleContactClick },
   ];
 
   return (
@@ -50,7 +68,7 @@ export default function Header() {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={item.action}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
                 {item.label}
@@ -75,7 +93,7 @@ export default function Header() {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={item.action}
                   className="text-left px-2 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                 >
                   {item.label}

@@ -1,53 +1,142 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
-  "summary": "Website project for Orion Star Tuition Centre (classes 1–12).",
+  "projectStateVersion": 11,
+  "summary": "ICP (Internet Computer) dapp template implemented: a React/Tailwind marketing site for a tutoring/teaching service with an enquiry submission flow backed by a Motoko canister, plus Internet Identity-based admin authentication/authorization to review enquiries.",
   "existing_features": [
     {
-      "id": "feature-create-a-responsive-multi-section-website-for-orion-star-tuition-centre-that-clearly-communicates-the-centre-name-and-that-it-teaches-students-from-class-1-to-class-12",
-      "title": "Create a responsive multi-section website for “Orion Star Tuition Centre” that clearly communicates the centre name and that it teaches students from Class 1 to Class 12.",
+      "id": "IF-1",
+      "title": "Motoko backend canister for enquiry capture and admin listing",
+      "synonyms": [
+        "enquiries canister",
+        "backend enquiries API"
+      ],
+      "description": "Backend canister implemented in Motoko to accept enquiry submissions and expose an admin-only interface to list/review enquiries, with authorization layered in the backend.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-2",
+      "title": "Internet Identity authentication integration (frontend)",
+      "synonyms": [
+        "II login",
+        "Internet Identity sign-in"
+      ],
+      "description": "Frontend authentication via Internet Identity with actor initialization and login/logout support used to access protected admin functionality.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-3",
+      "title": "Admin authorization guard for protected routes/pages",
+      "synonyms": [
+        "AdminGuard",
+        "protected admin page"
+      ],
+      "description": "Route/component guard that restricts access to admin views unless the user is authenticated/authorized.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-4",
+      "title": "Enquiry submission UI and client hook",
+      "synonyms": [
+        "EnquiryForm",
+        "useSubmitEnquiry"
+      ],
+      "description": "Public enquiry form UI with a submission hook that calls the backend canister to persist enquiries.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-5",
+      "title": "Admin enquiries list UI with retrieval hook",
+      "synonyms": [
+        "EnquiriesList",
+        "useEnquiriesAdmin"
+      ],
+      "description": "Admin UI to fetch and display submitted enquiries using a dedicated hook that calls the backend canister under authenticated context.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-6",
+      "title": "Marketing homepage with sections (Hero/About/Classes/Approach/Enquiry)",
+      "synonyms": [
+        "HomePage sections",
+        "landing page"
+      ],
+      "description": "Homepage composed of multiple content sections (hero, about, classes/subjects, teaching approach) and an embedded enquiry section.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-7",
+      "title": "Shared site layout (Header/Footer) and navigation",
+      "synonyms": [
+        "layout components"
+      ],
+      "description": "App layout components implemented for consistent header/footer framing across pages.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-10",
+      "title": "Shadcn/ui component library integrated",
+      "synonyms": [
+        "UI component set"
+      ],
+      "description": "Shadcn/ui component suite and related frontend configuration added for consistent UI primitives (buttons, dialogs, forms, etc.).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-8",
+      "title": "Generated brand assets included in frontend public directory",
+      "synonyms": [
+        "logo",
+        "hero image",
+        "icon set",
+        "illustrations",
+        "pattern tile"
+      ],
+      "description": "Generated image assets added under frontend/public/assets/generated for branding/visual design, including hero, logo, icons set, plus additional section illustrations (about, classes collage) and a pattern tile.",
+      "reqIds": [],
+      "version": 2
+    },
+    {
+      "id": "IF-9",
+      "title": "Build/deploy template scaffolding for ICP + React",
+      "synonyms": [
+        "build-template",
+        "deploy scripts",
+        "Dockerfile",
+        "workspace template"
+      ],
+      "description": "Project includes a reusable build-template scaffold (Dockerfile, deploy.sh, icp.yaml, pnpm workspace, image utility scripts, and frontend lint rules) to build and deploy the React frontend and Motoko backend to ICP.",
+      "reqIds": [],
+      "version": 2
+    },
+    {
+      "id": "feature-create-a-new-public-contact-page-route-at-contact-and-render-the-tuition-centre-contact-numbers-8754585354-and-9677219328-clearly-on-the-page-including-click-to-call-tel-links",
+      "title": "Create a new public Contact page route at \"/contact\" and render the tuition centre contact numbers \"8754585354\" and \"9677219328\" clearly on the page (including click-to-call \"tel:\" links).",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-implement-core-homepage-content-sections-with-clear-english-copy-hero-headline-short-description-about-why-choose-us-classes-subjects-grouped-for-class-1-5-6-8-9-10-11-12-teaching-approach-and-a-call-to-action-that-directs-users-to-contact-enquiry",
-      "title": "Implement core homepage content sections with clear English copy: Hero (headline + short description), About/Why Choose Us, Classes & Subjects (grouped for Class 1–5, 6–8, 9–10, 11–12), Teaching approach, and a Call-to-Action that directs users to contact/enquiry.",
+      "id": "feature-update-the-site-navigation-so-users-can-reach-the-new-contact-page-from-the-header-navigation-currently-includes-a-contact-item-that-scrolls-to-the-enquiry-section",
+      "title": "Update the site navigation so users can reach the new Contact page from the header navigation (currently includes a \"Contact\" item that scrolls to the \"enquiry\" section).",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-a-contact-enquiry-section-containing-a-form-student-name-parent-guardian-name-class-grade-phone-email-message-with-client-side-validation-and-a-clear-success-failure-state-submit-the-form-to-the-backend-for-storage-so-enquiries-persist-across-reloads",
-      "title": "Add a Contact/Enquiry section containing a form (student name, parent/guardian name, class/grade, phone/email, message) with client-side validation and a clear success/failure state. Submit the form to the backend for storage so enquiries persist across reloads.",
+      "id": "feature-add-the-contact-numbers-8754585354-and-9677219328-to-the-footer-connect-with-us-area-so-they-are-visible-site-wide",
+      "title": "Add the contact numbers \"8754585354\" and \"9677219328\" to the footer \"Connect With Us\" area so they are visible site-wide.",
       "reqIds": [
         "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-create-a-simple-admin-view-not-publicly-advertised-in-navigation-that-lists-submitted-enquiries-most-recent-first-with-their-submitted-fields-and-timestamp-and-includes-a-basic-delete-action-per-enquiry",
-      "title": "Create a simple admin view (not publicly advertised in navigation) that lists submitted enquiries (most recent first) with their submitted fields and timestamp, and includes a basic delete action per enquiry.",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-apply-a-coherent-creative-visual-theme-appropriate-for-an-education-tuition-centre-colors-typography-spacing-component-styling-and-use-it-consistently-across-the-website-do-not-use-a-blue-purple-dominant-theme",
-      "title": "Apply a coherent, creative visual theme appropriate for an education/tuition centre (colors, typography, spacing, component styling) and use it consistently across the website (do not use a blue/purple-dominant theme).",
-      "reqIds": [
-        "REQ-5"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-generate-and-include-required-static-image-assets-in-the-frontend-and-render-them-in-the-ui-from-the-static-assets-directory-frontend-public-assets-generated-without-routing-images-through-the-backend",
-      "title": "Generate and include required static image assets in the frontend and render them in the UI from the static assets directory (frontend/public/assets/generated), without routing images through the backend.",
-      "reqIds": [
-        "REQ-6"
       ],
       "version": 1
     }
@@ -55,37 +144,46 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Create a website for Orion Star Tuition Centre (serving students from class 1 to 12).",
+      "summary": "Add a Contact page/section that displays tuition centre contact numbers (8754585354, 9677219328).",
       "reqIds": [],
       "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Send enquiry/contact form submissions to aruns160896@gmail.com via email delivery.",
+      "reqIds": [],
+      "status": "blocked"
     }
   ],
-  "architectural_notes": [],
+  "architectural_notes": [
+    "Frontend uses React + Tailwind + shadcn/ui with Vite tooling.",
+    "Authentication uses Internet Identity; admin UI is gated via an AdminGuard and authenticated actor.",
+    "Backend canister written in Motoko implements enquiry submission and admin-only listing with an authorization layer/mixins.",
+    "Build-template directory provides a reusable ICP + React/Motoko scaffold including deployment scripts, workspace config, and frontend lint rules."
+  ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Tuition centre logo mark with a star/orion-inspired motif, clean and modern (orion-star-logo.dim_512x512.png)\n- Wide homepage hero banner illustration with students studying and subtle star/orion theme, warm academic feel (orion-star-hero.dim_1600x600.png)\n- Set of 3 simple outline icons in a consistent style: book, graduation cap, telescope/star (orion-star-icons-set.dim_512x512.png)",
   "generatedImages": [
     {
-      "filename": "orion-star-logo.dim_512x512.png",
-      "description": "Tuition centre logo mark with a star/orion-inspired motif, clean and modern",
-      "targetWidth": 512,
-      "targetHeight": 512
+      "filename": "frontend/public/assets/generated/orion-star-about-illustration.dim_1200x800.png",
+      "description": "Generated illustration image for About section branding.",
+      "targetWidth": 1200,
+      "targetHeight": 800
     },
     {
-      "filename": "orion-star-hero.dim_1600x600.png",
-      "description": "Wide homepage hero banner illustration with students studying and subtle star/orion theme, warm academic feel",
-      "targetWidth": 1600,
-      "targetHeight": 600
+      "filename": "frontend/public/assets/generated/orion-star-classes-collage.dim_1200x800.png",
+      "description": "Generated collage image for Classes/Subjects section branding.",
+      "targetWidth": 1200,
+      "targetHeight": 800
     },
     {
-      "filename": "orion-star-icons-set.dim_512x512.png",
-      "description": "Set of 3 simple outline icons in a consistent style: book, graduation cap, telescope/star",
+      "filename": "frontend/public/assets/generated/orion-star-pattern-tile.dim_512x512.png",
+      "description": "Generated repeating pattern tile asset for background/branding use.",
       "targetWidth": 512,
       "targetHeight": 512
     }
   ],
-  "gameProjectType": "none",
-  "projectName": "Orion Star Tuition Centre",
+  "projectName": "Orion star tuition centre",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

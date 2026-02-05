@@ -1,118 +1,78 @@
 {
   "kind": "build_request",
-  "title": "Create marketing website for Orion Star Tuition Centre (Classes 1–12)",
+  "title": "Add Contact page and display phone numbers",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Create a responsive multi-section website for “Orion Star Tuition Centre” that clearly communicates the centre name and that it teaches students from Class 1 to Class 12.",
+      "text": "Create a new public Contact page route at \"/contact\" and render the tuition centre contact numbers \"8754585354\" and \"9677219328\" clearly on the page (including click-to-call \"tel:\" links).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-6",
+          "msg-8"
         ],
         "quotes": [
-          "create an website for my tuition centre. The name is Orion star tuition centre. we teach students from class 1 till 12."
+          "add contact number as follows 8754585354, 9677219328.",
+          "yes"
         ]
       },
       "acceptanceCriteria": [
-        "Homepage displays the exact name “Orion Star Tuition Centre”.",
-        "Homepage explicitly states that the centre teaches Class 1 through Class 12.",
-        "Layout is usable on mobile and desktop (responsive)."
+        "Visiting \"/contact\" shows both phone numbers exactly as provided: 8754585354 and 9677219328",
+        "Each number is a clickable tel: link that opens the device dialer on supported devices",
+        "All user-facing text on the Contact page is in English"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Implement core homepage content sections with clear English copy: Hero (headline + short description), About/Why Choose Us, Classes & Subjects (grouped for Class 1–5, 6–8, 9–10, 11–12), Teaching approach, and a Call-to-Action that directs users to contact/enquiry.",
+      "text": "Update the site navigation so users can reach the new Contact page from the header navigation (currently includes a \"Contact\" item that scrolls to the \"enquiry\" section).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-6",
+          "msg-8"
         ],
         "quotes": [
-          "we teach students from class 1 till 12."
+          "add contact number as follows 8754585354, 9677219328.",
+          "yes"
         ]
       },
       "acceptanceCriteria": [
-        "Classes/Subjects section clearly covers Class 1–12 using grouped categories.",
-        "There is at least one prominent CTA button (e.g., “Enquire Now”) visible in the hero area.",
-        "All user-facing text is in English."
+        "The header includes a working navigation path to the Contact page at \"/contact\"",
+        "Navigation works on both desktop and mobile header menus"
       ]
     },
     {
       "id": "REQ-3",
-      "text": "Add a Contact/Enquiry section containing a form (student name, parent/guardian name, class/grade, phone/email, message) with client-side validation and a clear success/failure state. Submit the form to the backend for storage so enquiries persist across reloads.",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Form validates required fields before submission and shows inline errors.",
-        "Successful submission shows a confirmation message and clears the form.",
-        "Submitted enquiries are stored in the canister and remain available after page reload."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Create a simple admin view (not publicly advertised in navigation) that lists submitted enquiries (most recent first) with their submitted fields and timestamp, and includes a basic delete action per enquiry.",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Admin view displays a list of enquiries including class/grade and contact info fields provided.",
-        "Delete action removes an enquiry from storage and it no longer appears after refresh."
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Apply a coherent, creative visual theme appropriate for an education/tuition centre (colors, typography, spacing, component styling) and use it consistently across the website (do not use a blue/purple-dominant theme).",
+      "text": "Add the contact numbers \"8754585354\" and \"9677219328\" to the footer \"Connect With Us\" area so they are visible site-wide.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-6",
+          "msg-8"
+        ],
+        "quotes": [
+          "add contact number as follows 8754585354, 9677219328.",
+          "yes"
         ]
       },
       "acceptanceCriteria": [
-        "Theme is consistent across all sections (buttons, headings, cards, backgrounds).",
-        "The primary look is not blue/purple-dominant."
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Generate and include required static image assets in the frontend and render them in the UI from the static assets directory (frontend/public/assets/generated), without routing images through the backend.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All required generated images exist under frontend/public/assets/generated.",
-        "Homepage visibly uses the generated logo and hero image."
+        "The footer displays both numbers exactly as provided",
+        "Numbers are clickable tel: links",
+        "Footer layout remains visually consistent with existing styling"
       ]
     }
   ],
   "constraints": [
-    "Backend must remain a single Motoko actor in backend/main.mo (no additional backend services).",
-    "Do not edit files under frontend/src/components/ui or any frontend immutable paths; compose them instead."
+    "Do not modify any files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui (immutable paths).",
+    "Keep backend as a single Motoko actor; do not introduce additional backend services."
   ],
   "nonGoals": [
-    "Online payments or subscription billing",
-    "Real-time chat or messaging",
-    "Third-party authentication providers (only Internet Identity would be allowed, but it is not required for this request)",
-    "Integration with external databases or external CRMs"
+    "Do not implement emailing of form submissions to aruns160896@gmail.com (email delivery is not supported/available in this environment).",
+    "Do not change the existing enquiry submission storage/admin listing behavior in the Motoko canister."
   ],
   "imageRequirements": {
-    "required": [
-      "Tuition centre logo mark with a star/orion-inspired motif, clean and modern (orion-star-logo.dim_512x512.png)",
-      "Wide homepage hero banner illustration with students studying and subtle star/orion theme, warm academic feel (orion-star-hero.dim_1600x600.png)",
-      "Set of 3 simple outline icons in a consistent style: book, graduation cap, telescope/star (orion-star-icons-set.dim_512x512.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

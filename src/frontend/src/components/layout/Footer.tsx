@@ -1,5 +1,5 @@
 import { SiFacebook, SiInstagram, SiX } from 'react-icons/si';
-import { Heart } from 'lucide-react';
+import { Heart, Phone } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -72,7 +72,23 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h3 className="font-heading font-semibold text-sm mb-4">Connect With Us</h3>
-            <div className="flex gap-4 mb-4">
+            <div className="space-y-3 mb-4">
+              <a
+                href="tel:8754585354"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group"
+              >
+                <Phone size={16} className="group-hover:scale-110 transition-transform" />
+                <span className="font-medium">8754585354</span>
+              </a>
+              <a
+                href="tel:9677219328"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group"
+              >
+                <Phone size={16} className="group-hover:scale-110 transition-transform" />
+                <span className="font-medium">9677219328</span>
+              </a>
+            </div>
+            <div className="flex gap-4 pt-4 border-t border-border/40">
               <a
                 href="#"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -95,9 +111,6 @@ export default function Footer() {
                 <SiX size={20} />
               </a>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Follow us for updates, tips, and educational content.
-            </p>
           </div>
         </div>
 
